@@ -21,9 +21,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="AX8-5I-vMT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="크레이지다이어리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8Q-MK-Cau">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="크레이지다이어리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8Q-MK-Cau">
                                 <rect key="frame" x="69" y="313" width="236" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -39,10 +38,12 @@
                         <constraints>
                             <constraint firstItem="AX8-5I-vMT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CQc-nI-dFh"/>
                             <constraint firstItem="AX8-5I-vMT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EYe-7j-eVN"/>
+                            <constraint firstItem="j8Q-MK-Cau" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LqX-Q9-gYe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ghc-el-mX7" secondAttribute="bottom" constant="20" id="NhQ-sP-2EX"/>
                             <constraint firstItem="AX8-5I-vMT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qpz-vU-xYQ"/>
                             <constraint firstItem="Ghc-el-mX7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="T4w-oS-zoG"/>
                             <constraint firstItem="AX8-5I-vMT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YAN-G7-gDm"/>
+                            <constraint firstItem="j8Q-MK-Cau" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fVS-fi-PDZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
