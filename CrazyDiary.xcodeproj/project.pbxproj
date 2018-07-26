@@ -54,14 +54,70 @@
 		AEE553F6210A43150048C0C3 /* CrazyDiary */ = {
 			isa = PBXGroup;
 			children = (
-				AEE553F7210A43150048C0C3 /* AppDelegate.swift */,
-				AEE553F9210A43150048C0C3 /* ViewController.swift */,
-				AEE553FB210A43150048C0C3 /* Main.storyboard */,
-				AEE553FE210A43170048C0C3 /* Assets.xcassets */,
-				AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */,
-				AEE55403210A43170048C0C3 /* Info.plist */,
+				AEE55409210A43840048C0C3 /* Sources */,
+				AEE5540D210A43D50048C0C3 /* Storyboards */,
+				AEE5540E210A43FD0048C0C3 /* Resources */,
 			);
 			path = CrazyDiary;
+			sourceTree = "<group>";
+		};
+		AEE55409210A43840048C0C3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AEE5540A210A43930048C0C3 /* Views */,
+				AEE5540B210A43A70048C0C3 /* Controllers */,
+				AEE5540C210A43B60048C0C3 /* Models */,
+				AEE5540F210A442D0048C0C3 /* Shared */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AEE5540A210A43930048C0C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AEE5540B210A43A70048C0C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AEE553F9210A43150048C0C3 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AEE5540C210A43B60048C0C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AEE5540D210A43D50048C0C3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */,
+				AEE553FB210A43150048C0C3 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AEE5540E210A43FD0048C0C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEE553FE210A43170048C0C3 /* Assets.xcassets */,
+				AEE55403210A43170048C0C3 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AEE5540F210A442D0048C0C3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AEE553F7210A43150048C0C3 /* AppDelegate.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
-				INFOPLIST_FILE = CrazyDiary/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CrazyDiary/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
-				INFOPLIST_FILE = CrazyDiary/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CrazyDiary/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
