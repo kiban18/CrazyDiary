@@ -17,13 +17,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="AX8-5I-vMT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AX8-5I-vMT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CQc-nI-dFh"/>
+                            <constraint firstItem="AX8-5I-vMT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EYe-7j-eVN"/>
+                            <constraint firstItem="AX8-5I-vMT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qpz-vU-xYQ"/>
+                            <constraint firstItem="AX8-5I-vMT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YAN-G7-gDm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="375" height="812"/>
+    </resources>
 </document>
