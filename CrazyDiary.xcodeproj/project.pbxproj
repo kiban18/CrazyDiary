@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AEB66339210C4B8600FBB92F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB66338210C4B8600FBB92F /* Entry.swift */; };
+		AEB6633D210C53B700FBB92F /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB6633C210C53B700FBB92F /* Diary.swift */; };
 		AEE553F8210A43150048C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F7210A43150048C0C3 /* AppDelegate.swift */; };
 		AEE553FA210A43150048C0C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F9210A43150048C0C3 /* ViewController.swift */; };
 		AEE553FF210A43170048C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE553FE210A43170048C0C3 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		AEB66338210C4B8600FBB92F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		AEB6633C210C53B700FBB92F /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		AEE553F4210A43150048C0C3 /* CrazyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE553F7210A43150048C0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE553F9210A43150048C0C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB66338210C4B8600FBB92F /* Entry.swift */,
+				AEB6633C210C53B700FBB92F /* Diary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				AEB66339210C4B8600FBB92F /* Entry.swift in Sources */,
 				AEE553FA210A43150048C0C3 /* ViewController.swift in Sources */,
 				AEE553F8210A43150048C0C3 /* AppDelegate.swift in Sources */,
+				AEB6633D210C53B700FBB92F /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
