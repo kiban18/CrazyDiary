@@ -1,5 +1,8 @@
 # CrazyDiary
 
+## 설치
+`git clone https://github.com/kiban18/CrazyDiary.git`
+
 CrazyDiary는 일기장 앱 입니다.
 
 앱의 주요 기능을 다음과 같은 순서로 개발할 예정입니다.
