@@ -9,15 +9,29 @@
 /* Begin PBXBuildFile section */
 		AEB66339210C4B8600FBB92F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB66338210C4B8600FBB92F /* Entry.swift */; };
 		AEB6633D210C53B700FBB92F /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB6633C210C53B700FBB92F /* Diary.swift */; };
+		AEB66361210C59F300FBB92F /* CrazyDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB66360210C59F300FBB92F /* CrazyDiaryTests.swift */; };
 		AEE553F8210A43150048C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F7210A43150048C0C3 /* AppDelegate.swift */; };
 		AEE553FA210A43150048C0C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F9210A43150048C0C3 /* ViewController.swift */; };
 		AEE553FF210A43170048C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE553FE210A43170048C0C3 /* Assets.xcassets */; };
 		AEE55402210A43170048C0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AEB66363210C59F300FBB92F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEE553EC210A43150048C0C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEE553F3210A43150048C0C3;
+			remoteInfo = CrazyDiary;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AEB66338210C4B8600FBB92F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		AEB6633C210C53B700FBB92F /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		AEB6635E210C59F200FBB92F /* CrazyDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrazyDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEB66360210C59F300FBB92F /* CrazyDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrazyDiaryTests.swift; sourceTree = "<group>"; };
+		AEB66362210C59F300FBB92F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE553F4210A43150048C0C3 /* CrazyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE553F7210A43150048C0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE553F9210A43150048C0C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +41,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AEB6635B210C59F200FBB92F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEE553F1210A43150048C0C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +58,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEB6635F210C59F300FBB92F /* CrazyDiaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				AEB66360210C59F300FBB92F /* CrazyDiaryTests.swift */,
+				AEB66362210C59F300FBB92F /* Info.plist */,
+			);
+			path = CrazyDiaryTests;
+			sourceTree = "<group>";
+		};
 		AEE553EB210A43150048C0C3 = {
 			isa = PBXGroup;
 			children = (
 				AEE553F6210A43150048C0C3 /* CrazyDiary */,
+				AEB6635F210C59F300FBB92F /* CrazyDiaryTests */,
 				AEE553F5210A43150048C0C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				AEE553F4210A43150048C0C3 /* CrazyDiary.app */,
+				AEB6635E210C59F200FBB92F /* CrazyDiaryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +158,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AEB6635D210C59F200FBB92F /* CrazyDiaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEB66367210C59F300FBB92F /* Build configuration list for PBXNativeTarget "CrazyDiaryTests" */;
+			buildPhases = (
+				AEB6635A210C59F200FBB92F /* Sources */,
+				AEB6635B210C59F200FBB92F /* Frameworks */,
+				AEB6635C210C59F200FBB92F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEB66364210C59F300FBB92F /* PBXTargetDependency */,
+			);
+			name = CrazyDiaryTests;
+			productName = CrazyDiaryTests;
+			productReference = AEB6635E210C59F200FBB92F /* CrazyDiaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AEE553F3210A43150048C0C3 /* CrazyDiary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEE55406210A43170048C0C3 /* Build configuration list for PBXNativeTarget "CrazyDiary" */;
@@ -153,6 +203,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Crazy Up Inc.";
 				TargetAttributes = {
+					AEB6635D210C59F200FBB92F = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = AEE553F3210A43150048C0C3;
+					};
 					AEE553F3210A43150048C0C3 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -172,11 +226,19 @@
 			projectRoot = "";
 			targets = (
 				AEE553F3210A43150048C0C3 /* CrazyDiary */,
+				AEB6635D210C59F200FBB92F /* CrazyDiaryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AEB6635C210C59F200FBB92F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEE553F2210A43150048C0C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +251,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AEB6635A210C59F200FBB92F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEB66361210C59F300FBB92F /* CrazyDiaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEE553F0210A43150048C0C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +272,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AEB66364210C59F300FBB92F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEE553F3210A43150048C0C3 /* CrazyDiary */;
+			targetProxy = AEB66363210C59F300FBB92F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -214,6 +292,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AEB66365210C59F300FBB92F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53VC8VKZ77;
+				INFOPLIST_FILE = CrazyDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrazyDiary.app/CrazyDiary";
+			};
+			name = Debug;
+		};
+		AEB66366210C59F300FBB92F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53VC8VKZ77;
+				INFOPLIST_FILE = CrazyDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrazyDiary.app/CrazyDiary";
+			};
+			name = Release;
+		};
 		AEE55404210A43170048C0C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +485,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AEB66367210C59F300FBB92F /* Build configuration list for PBXNativeTarget "CrazyDiaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEB66365210C59F300FBB92F /* Debug */,
+				AEB66366210C59F300FBB92F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AEE553EF210A43150048C0C3 /* Build configuration list for PBXProject "CrazyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
