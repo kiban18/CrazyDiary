@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import CrazyDiary
 
 class CrazyDiaryTests: XCTestCase {
     
@@ -20,9 +21,22 @@ class CrazyDiaryTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func test_엔트리를_생성한다() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // Setup
+        let entry = Entry.init(id: 1, createdAt: Date(), content: "오늘은 기분이 좋다.", location: "서울")
+
+        // Run
+        entry.content = "오늘은 기분이 좋다.."
+        
+        // Verify
+        XCTAssertEqual(entry.content, "오늘은 기분이 좋다..")
+        
+        // Teardown
+        // TODO 위에 생성한 엔트리 삭제!
+
     }
     
     func testPerformanceExample() {
