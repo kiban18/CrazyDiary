@@ -16,16 +16,25 @@ class Entry {
     var content: String
     var location: String?
     
-    init(id: Int, createdAt: Date, content: String, location: String?) {
+    init(id: Int, createdAt: Date, content: String, location: String? = nil) {
         self.id = id
         self.createdAt = createdAt
         self.content = content
         self.location = location
     }
     
-    func modify(modifiedAt: Date, content: String, location: String?) {
+    func modify(modifiedAt: Date, content: String, location: String? = nil) {
         self.modifiedAt = modifiedAt
         self.content = content
         self.location = location
+    }
+}
+
+extension Entry: Identifiable {
+}
+
+extension Entry: Equatable {
+    static func == (lhs: Entry, rhs: Entry) -> Bool {
+        return true
     }
 }
