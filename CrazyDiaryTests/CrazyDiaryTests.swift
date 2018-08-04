@@ -37,10 +37,8 @@ class CrazyDiaryTests: XCTestCase {
         newEntry.text = "오늘은 기분이 좋다.."
         
         // Verify
-        XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..")
-        // Teardown
-        // TODO 위에 생성한 엔트리 삭제!
-
+//        XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..") // need Equatable
+        expect(newEntry.text) == "오늘은 기분이 좋다.."
     }
     
     // 일기장에 일기 추가
@@ -54,10 +52,12 @@ class CrazyDiaryTests: XCTestCase {
         
         // Verify
         let entryInJournal: Entry? = diary.entry(with: 1)
-        
-        XCTAssertEqual(entryInJournal, .some(newEntry)) // need Equatable
-        XCTAssertTrue(entryInJournal === newEntry) // // 클래스 타입에만 사용 가능, 같은 데이터인지?
-        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
+//        XCTAssertEqual(entryInJournal, .some(newEntry)) // need Equatable
+        expect(entryInJournal) == .some(newEntry)
+//        XCTAssertTrue(entryInJournal === newEntry) // // 클래스 타입에만 사용 가능, 같은 데이터인지?
+        expect(entryInJournal) === newEntry
+//        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
+        expect(entryInJournal?.isIdentical(to: newEntry)) == true
     }
     
     // 일기장에서 일기 가져오기
@@ -70,8 +70,10 @@ class CrazyDiaryTests: XCTestCase {
         let entry = diary.entry(with: 1)
         
         // Verify
-        XCTAssertEqual(entry, .some(oldEntry))
-        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+//        XCTAssertEqual(entry, .some(oldEntry))
+        expect(entry) == .some(oldEntry)
+//        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+        expect(entry?.isIdentical(to: oldEntry)) == true
     }
     
     // 일기장에 일기 업데이트 하기
