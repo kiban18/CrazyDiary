@@ -17,6 +17,7 @@ inhibit_all_warnings!
 #
 #end
 target :CrazyDiary do
+  pod 'SnapKit'
   target :CrazyDiaryTests do
     inherit! :search_paths
     pod 'Nimble', '~> 7.0.0'
