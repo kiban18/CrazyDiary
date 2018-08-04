@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		260F87561E6F4A3C20383321 /* Pods_CrazyDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2998E864FB34B0D5F8F86134 /* Pods_CrazyDiary.framework */; };
 		AE93DE92211542B000C27F4F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93DE91211542B000C27F4F /* Identifiable.swift */; };
+		AE93DE9B2115914D00C27F4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE93DE992115914D00C27F4F /* Main.storyboard */; };
 		AEB66339210C4B8600FBB92F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB66338210C4B8600FBB92F /* Entry.swift */; };
 		AEB6633D210C53B700FBB92F /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB6633C210C53B700FBB92F /* Diary.swift */; };
 		AEB66361210C59F300FBB92F /* CrazyDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB66360210C59F300FBB92F /* CrazyDiaryTests.swift */; };
 		AEE553F8210A43150048C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F7210A43150048C0C3 /* AppDelegate.swift */; };
-		AEE553FA210A43150048C0C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F9210A43150048C0C3 /* ViewController.swift */; };
+		AEE553FA210A43150048C0C3 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE553F9210A43150048C0C3 /* EntryViewController.swift */; };
 		AEE553FF210A43170048C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE553FE210A43170048C0C3 /* Assets.xcassets */; };
 		AEE55402210A43170048C0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */; };
 		CBAAE96C4CB99D601750BE5A /* Pods_CrazyDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC45CD16DB7FC6D43FCD7D2 /* Pods_CrazyDiaryTests.framework */; };
@@ -37,6 +38,7 @@
 		8DA6B1BE2E74407C186836F4 /* Pods-CrazyDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrazyDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrazyDiary/Pods-CrazyDiary.release.xcconfig"; sourceTree = "<group>"; };
 		9542BC48ED1ED39E026230A5 /* Pods-CrazyDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrazyDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrazyDiary/Pods-CrazyDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		AE93DE91211542B000C27F4F /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		AE93DE9A2115914D00C27F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEB66338210C4B8600FBB92F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		AEB6633C210C53B700FBB92F /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		AEB6635E210C59F200FBB92F /* CrazyDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrazyDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +46,7 @@
 		AEB66362210C59F300FBB92F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE553F4210A43150048C0C3 /* CrazyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE553F7210A43150048C0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEE553F9210A43150048C0C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AEE553F9210A43150048C0C3 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		AEE553FE210A43170048C0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEE55401210A43170048C0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEE55403210A43170048C0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,7 +152,7 @@
 		AEE5540B210A43A70048C0C3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AEE553F9210A43150048C0C3 /* ViewController.swift */,
+				AEE553F9210A43150048C0C3 /* EntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */,
+				AE93DE992115914D00C27F4F /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE93DE9B2115914D00C27F4F /* Main.storyboard in Resources */,
 				AEE55402210A43170048C0C3 /* LaunchScreen.storyboard in Resources */,
 				AEE553FF210A43170048C0C3 /* Assets.xcassets in Resources */,
 			);
@@ -378,7 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB66339210C4B8600FBB92F /* Entry.swift in Sources */,
-				AEE553FA210A43150048C0C3 /* ViewController.swift in Sources */,
+				AEE553FA210A43150048C0C3 /* EntryViewController.swift in Sources */,
 				AEE553F8210A43150048C0C3 /* AppDelegate.swift in Sources */,
 				AE93DE92211542B000C27F4F /* Identifiable.swift in Sources */,
 				AEB6633D210C53B700FBB92F /* Diary.swift in Sources */,
@@ -396,6 +400,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AE93DE992115914D00C27F4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE93DE9A2115914D00C27F4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		AEE55400210A43170048C0C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,7 +427,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
 				INFOPLIST_FILE = CrazyDiaryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -432,7 +448,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
 				INFOPLIST_FILE = CrazyDiaryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -563,7 +583,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
 				INFOPLIST_FILE = "$(SRCROOT)/CrazyDiary/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -579,7 +602,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53VC8VKZ77;
 				INFOPLIST_FILE = "$(SRCROOT)/CrazyDiary/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazyupinc.app.CrazyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
