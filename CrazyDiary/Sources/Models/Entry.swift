@@ -13,19 +13,19 @@ class Entry {
     let createdAt: Date
     var modifiedAt: Date?
 
-    var content: String
+    var text: String
     var location: String?
     
-    init(id: Int, createdAt: Date, content: String, location: String? = nil) {
+    init(id: Int, createdAt: Date, text: String, location: String? = nil) {
         self.id = id
         self.createdAt = createdAt
-        self.content = content
+        self.text = text
         self.location = location
     }
     
-    func modify(modifiedAt: Date, content: String, location: String? = nil) {
+    func modify(modifiedAt: Date, text: String, location: String? = nil) {
         self.modifiedAt = modifiedAt
-        self.content = content
+        self.text = text
         self.location = location
     }
 }

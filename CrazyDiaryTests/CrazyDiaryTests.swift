@@ -9,6 +9,12 @@
 import XCTest
 @testable import CrazyDiary
 
+extension Entry {
+    static var dayBeforeYesterday: Entry { return Entry(id: 1, createdAt: Date.distantPast, text: "그저께 일기") }
+    static var yesterday: Entry { return Entry(id: 2, createdAt: Date(), text: "어제 일기") }
+    static var today: Entry { return Entry(id: 3, createdAt: Date.distantFuture, text: "오늘 일기") }
+}
+
 class CrazyDiaryTests: XCTestCase {
     
     override func setUp() {
@@ -21,28 +27,27 @@ class CrazyDiaryTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_엔트리를_생성한다() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+    // 첫 번째 단위 테스트
+    func testEditEntryText() {
         // Setup
-        let entry = Entry.init(id: 0, createdAt: Date(), content: "오늘은 기분이 좋다.", location: "서울")
+        let newEntry = Entry.init(id: 0, createdAt: Date(), text: "오늘은 기분이 좋다.", location: "서울")
 
         // Run
-        entry.content = "오늘은 기분이 좋다.."
+        newEntry.text = "오늘은 기분이 좋다.."
         
         // Verify
-        XCTAssertEqual(entry.content, "오늘은 기분이 좋다..")
+        XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..")
         
         // Teardown
         // TODO 위에 생성한 엔트리 삭제!
 
     }
     
+    // 일기장에 일기 추가
     func testAddEntryToDiary() {
         // Setup
         let diary = InMemoryDiary()
-        let newEntry = Entry(id: 1, createdAt: Date(), content: "일기", location: "대구")
+        let newEntry = Entry(id: 1, createdAt: Date(), text: "일기", location: "대구")
 
         // Run
         diary.add(newEntry)
@@ -55,9 +60,10 @@ class CrazyDiaryTests: XCTestCase {
         XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
     }
     
+    // 일기장에서 일기 가져오기
     func testGetEntryWithId() {
         // Setup
-        let oldEntry = Entry(id: 1, createdAt: Date(), content: "일기")
+        let oldEntry = Entry(id: 1, createdAt: Date(), text: "일기")
         let diary = InMemoryDiary(entries: [oldEntry])
         
         // Run
@@ -68,41 +74,44 @@ class CrazyDiaryTests: XCTestCase {
         XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
     }
     
+    // 일기장에 일기 업데이트 하기
     func testUpdateEntryPositive() {
         // Setup
-        let oldEntry = Entry(id: 1, createdAt: Date(), content: "일기")
+        let oldEntry = Entry(id: 1, createdAt: Date(), text: "일기")
         let diary = InMemoryDiary(entries: [oldEntry])
         
         // Run
-        oldEntry.content = "일기 내용을 수정했습니다."
+        oldEntry.text = "일기 내용을 수정했습니다."
         diary.update(oldEntry)
         
         // Verify
         let entry = diary.entry(with: 1)
         XCTAssertEqual(entry, .some(oldEntry)) // TODO: 어떤 의미?
         XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
-        XCTAssertEqual(entry?.content, .some("일기 내용을 수정했습니다."))
+        XCTAssertEqual(entry?.text, .some("일기 내용을 수정했습니다."))
     }
     
+    // 일기장에 일기 업데이트 하기 - negative
     func testUpdateEntryNegative() {
         // Setup
-        let oldEntry = Entry(id: 1, createdAt: Date(), content: "일기")
+        let oldEntry = Entry(id: 1, createdAt: Date(), text: "일기")
         let diary = InMemoryDiary(entries: [oldEntry])
         
         // Run
-        oldEntry.content = "일기 내용을 수정했습니다."
+        oldEntry.text = "일기 내용을 수정했습니다."
         diary.update(oldEntry)
         
         // Verify
         let entry = diary.entry(with: 1)
         XCTAssertEqual(entry, .some(oldEntry)) // TODO: 어떤 의미?
         XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
-        XCTAssertNotEqual(entry?.content, .some("일기 내용이 달라졌어요."))
+        XCTAssertNotEqual(entry?.text, .some("일기 내용이 달라졌어요."))
     }
 
+    // 일기장에서 일기 지우기
     func testRemoveEntry() {
         // Setup
-        let oldEntry = Entry(id: 2, createdAt: Date(), content: "지워질 일기")
+        let oldEntry = Entry(id: 2, createdAt: Date(), text: "지워질 일기")
         let diary = InMemoryDiary(entries: [oldEntry])
         
         // Run
@@ -113,53 +122,43 @@ class CrazyDiaryTests: XCTestCase {
         XCTAssertNil(entry)
     }
     
-    func test_최근_순으로_엔트리를_불러올_수_있다() {
+    // 일기장에서 최근 작성된 순으로 일기 가져오기
+    func testGetRecentEntriesByDateDescending() {
         // Setup
-        let dayBeforeYesterday = Entry(id: 1, createdAt: Date.distantPast, content: "그저께 일기")
-        let yesterday = Entry(id: 2, createdAt: Date(), content: "어제 일기")
-        let today = Entry(id: 3, createdAt: Date.distantFuture, content: "오늘 일기")
-        
-        let diary = InMemoryDiary(entries: [dayBeforeYesterday, yesterday, today])
+        let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
         
         // Run
         let entries = diary.recentEntries(max: 3)
         
         // Verify
         XCTAssertEqual(entries.count, 3)
-        XCTAssertEqual(entries, [today, yesterday, dayBeforeYesterday])
+        XCTAssertEqual(entries, [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday])
     }
     
-    func test_요청한_엔트리의_수만큼_최신_순으로_반환한다() {
+    // 일기장에서 최근 작성된 순으로 정해진 수 만큼 일기 가져오기
+    func testGetRecentEntriesByMaxCount() {
         // Setup
-        let dayBeforeYesterday = Entry(id: 1, createdAt: Date.distantPast, content: "그저께 일기")
-        let yesterday = Entry(id: 2, createdAt: Date(), content: "어제 일기")
-        let today = Entry(id: 3, createdAt: Date.distantFuture, content: "오늘 일기")
-        
-        let diary = InMemoryDiary(entries: [dayBeforeYesterday, yesterday, today])
+        let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
         
         // Run
         let entries = diary.recentEntries(max: 1)
         
         // Verify
         XCTAssertEqual(entries.count, 1)
-        XCTAssertEqual(entries, [today])
+        XCTAssertEqual(entries, [Entry.today])
     }
     
-    func test_존재하는_엔트리보다_많은_수를_요청하면_존재하는_엔트리만큼만_반환한다() {
+    func testGetRecentEntriesAsManyAsStored() {
         // Setup
-        let dayBeforeYesterday = Entry(id: 1, createdAt: Date.distantPast, content: "그저께 일기")
-        let yesterday = Entry(id: 2, createdAt: Date(), content: "어제 일기")
-        let today = Entry(id: 3, createdAt: Date.distantFuture, content: "오늘 일기")
-        
-        let diary = InMemoryDiary(entries: [dayBeforeYesterday, yesterday, today])
+        let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
         
         // Run
-//        let entries = diary.recentEntries(max: 10)
-        let entries = diary.recentEntries(max: -3)
+        let entries = diary.recentEntries(max: 10)
+//        let entries = diary.recentEntries(max: -3)
 
         // Verify
         XCTAssertEqual(entries.count, 3)
-        XCTAssertEqual(entries, [today, yesterday, dayBeforeYesterday])
+        XCTAssertEqual(entries, [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday])
     }
 
     func testPerformanceExample() {
