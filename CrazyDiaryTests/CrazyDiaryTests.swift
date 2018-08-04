@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import CrazyDiary
 
 extension Entry {
@@ -37,7 +38,6 @@ class CrazyDiaryTests: XCTestCase {
         
         // Verify
         XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..")
-        
         // Teardown
         // TODO 위에 생성한 엔트리 삭제!
 
