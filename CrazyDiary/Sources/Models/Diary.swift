@@ -50,6 +50,8 @@ class InMemoryDiary: Diary {
     }
     
     func recentEntries(max: Int) -> [Entry] {
+        guard max >= 0 else { return [] }
+        
         let result = entries
             .values
             .sorted { $0.createdAt > $1.createdAt } // 성능상 좋은 방법은 아님.

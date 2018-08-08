@@ -37,7 +37,9 @@ class CrazyDiaryTests: XCTestCase {
         newEntry.text = "오늘은 기분이 좋다.."
         
         // Verify
-        XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..")
+//        XCTAssertEqual(newEntry.text, "오늘은 기분이 좋다..")
+        expect(newEntry.text).to(equal("오늘은 기분이 좋다.."))
+        expect(newEntry.location) == "서울" // Nimble Operator Overloads
         // Teardown
         // TODO 위에 생성한 엔트리 삭제!
 
@@ -47,17 +49,28 @@ class CrazyDiaryTests: XCTestCase {
     func testAddEntryToDiary() {
         // Setup
         let diary = InMemoryDiary()
-        let newEntry = Entry(id: 1, createdAt: Date(), text: "일기", location: "대구")
+        let newEntry1 = Entry(id: 1, createdAt: Date(), text: "일기", location: "대구")
+        let newEntry2 = Entry(id: 2, createdAt: Date(), text: "일기", location: "대구")
 
         // Run
-        diary.add(newEntry)
-        
+        diary.add(newEntry1)
+        diary.add(newEntry2)
+
         // Verify
-        let entryInJournal: Entry? = diary.entry(with: 1)
-        
-        XCTAssertEqual(entryInJournal, .some(newEntry)) // need Equatable
-        XCTAssertTrue(entryInJournal === newEntry) // // 클래스 타입에만 사용 가능, 같은 데이터인지?
-        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
+        let entryInJournal1: Entry? = diary.entry(with: 1)
+        let entryInJournal2: Entry? = diary.entry(with: 2)
+
+//        XCTAssertEqual(entryInJournal1, .some(newEntry1)) // need Equatable
+        expect(entryInJournal1) == newEntry1
+        expect(entryInJournal1) == .some(newEntry1) // What is difference between newEntry1 and .some(newEntry1) ?
+        expect(entryInJournal2) != newEntry1 // NOT equal to
+        expect(entryInJournal2) == newEntry2 // equal to
+
+//        XCTAssertTrue(entryInJournal1 === newEntry1) // 클래스 타입에만 사용 가능?, 같은 데이터인지?
+//        XCTAssertTrue(entryInJournal1?.isIdentical(to: newEntry1) == true)
+        expect(entryInJournal1) === newEntry1 // identical to
+        expect(entryInJournal2) !== newEntry1 // NOT identical to
+        expect(entryInJournal2) === newEntry2 // identical to
     }
     
     // 일기장에서 일기 가져오기
@@ -70,8 +83,10 @@ class CrazyDiaryTests: XCTestCase {
         let entry = diary.entry(with: 1)
         
         // Verify
-        XCTAssertEqual(entry, .some(oldEntry))
-        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+//        XCTAssertEqual(entry, .some(oldEntry))
+        expect(entry) == oldEntry
+//        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+        expect(entry) === oldEntry
     }
     
     // 일기장에 일기 업데이트 하기
@@ -86,9 +101,17 @@ class CrazyDiaryTests: XCTestCase {
         
         // Verify
         let entry = diary.entry(with: 1)
-        XCTAssertEqual(entry, .some(oldEntry)) // TODO: 어떤 의미?
-        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
-        XCTAssertEqual(entry?.text, .some("일기 내용을 수정했습니다."))
+//        XCTAssertEqual(entry, .some(oldEntry))
+        expect(entry) == oldEntry
+//        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+        expect(entry?.isIdentical(to: oldEntry)).to(beTrue())
+        expect(entry) === oldEntry
+//        XCTAssertEqual(entry?.text, .some("일기 내용을 수정했습니다."))
+        expect(entry?.text) == "일기 내용을 수정했습니다."
+
+        let entry2 = diary.entry(with: 2)
+        //expect(entry2?.text) != "일기 내용을 수정했습니다."
+        expect(entry2?.text).to(beNil())
     }
     
     // 일기장에 일기 업데이트 하기 - negative
@@ -103,9 +126,13 @@ class CrazyDiaryTests: XCTestCase {
         
         // Verify
         let entry = diary.entry(with: 1)
-        XCTAssertEqual(entry, .some(oldEntry)) // TODO: 어떤 의미?
-        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
-        XCTAssertNotEqual(entry?.text, .some("일기 내용이 달라졌어요."))
+//        XCTAssertEqual(entry, .some(oldEntry))
+        expect(entry) == oldEntry
+//        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+        expect(entry) === oldEntry
+//        XCTAssertNotEqual(entry?.text, .some("일기 내용이 달라졌어요."))
+        expect(entry?.text) != "일기"
+        expect(entry?.text) != "일기 내용이 달라졌어요."
     }
 
     // 일기장에서 일기 지우기
@@ -119,20 +146,39 @@ class CrazyDiaryTests: XCTestCase {
         
         // Verify
         let entry = diary.entry(with: 2)
-        XCTAssertNil(entry)
+//        XCTAssertNil(entry)
+        expect(entry).to(beNil())
     }
     
     // 일기장에서 최근 작성된 순으로 일기 가져오기
     func testGetRecentEntriesByDateDescending() {
         // Setup
         let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
+        print("1. dayBeforeYesterday: \(Entry.dayBeforeYesterday.createdAt)")
+        print("2. yesterday: \(Entry.yesterday.createdAt)")
+        print("3. today: \(Entry.today.createdAt)")
+//        1. dayBeforeYesterday: 0000-12-30 00:00:00 +0000
+//        2. yesterday: 2018-08-08 04:00:55 +0000
+//        3. today: 4001-01-01 00:00:00 +0000
         
         // Run
         let entries = diary.recentEntries(max: 3)
+        entries.forEach { print($0.createdAt) }
+//        4001-01-01 00:00:00 +0000
+//        2018-08-08 04:00:55 +0000
+//        0000-12-30 00:00:00 +0000
         
         // Verify
-        XCTAssertEqual(entries.count, 3)
+//        XCTAssertEqual(entries.count, 3)
+        expect(entries.count) == 3
         XCTAssertEqual(entries, [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday])
+        expect(entries) == [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday]
+        
+        let expectedEntries = [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday]
+        expectedEntries.forEach { print($0.createdAt) }
+//        4001-01-01 00:00:00 +0000
+//        2018-08-08 04:00:55 +0000
+//        0000-12-30 00:00:00 +0000
     }
     
     // 일기장에서 최근 작성된 순으로 정해진 수 만큼 일기 가져오기
@@ -144,21 +190,37 @@ class CrazyDiaryTests: XCTestCase {
         let entries = diary.recentEntries(max: 1)
         
         // Verify
-        XCTAssertEqual(entries.count, 1)
-        XCTAssertEqual(entries, [Entry.today])
+//        XCTAssertEqual(entries.count, 1)
+        expect(entries.count) == 1
+//        XCTAssertEqual(entries, [Entry.today])
+        expect(entries) == [Entry.today]
+    }
+    
+    func testGetRecentEntriesByMinusMax() {
+        // Setup
+        let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
+        
+        // Run
+        let entries = diary.recentEntries(max: -1)
+        
+        // Verify
+        expect(entries) == []
     }
     
     func testGetRecentEntriesAsManyAsStored() {
         // Setup
         let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
-        
+//        let diary = InMemoryDiary(entries: [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday])
+
         // Run
         let entries = diary.recentEntries(max: 10)
 //        let entries = diary.recentEntries(max: -3)
 
         // Verify
-        XCTAssertEqual(entries.count, 3)
+//        XCTAssertEqual(entries.count, 3)
+        expect(entries.count) == 3
         XCTAssertEqual(entries, [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday])
+        expect(entries) == [Entry.today, Entry.yesterday, Entry.dayBeforeYesterday]
     }
 
     func testPerformanceExample() {
