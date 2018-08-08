@@ -196,6 +196,17 @@ class CrazyDiaryTests: XCTestCase {
         expect(entries) == [Entry.today]
     }
     
+    func testGetRecentEntriesByMinusMax() {
+        // Setup
+        let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
+        
+        // Run
+        let entries = diary.recentEntries(max: -1)
+        
+        // Verify
+        expect(entries) == []
+    }
+    
     func testGetRecentEntriesAsManyAsStored() {
         // Setup
         let diary = InMemoryDiary(entries: [Entry.dayBeforeYesterday, Entry.yesterday, Entry.today])
