@@ -8,7 +8,17 @@
 
 import Foundation
 
-class Entry {
+protocol EntryType: Identifiable, Equatable {
+    var id: Int { get }
+    var createdAt: Date { get }
+    var modifiedAt: Date? { get set }
+    var text: String { get set }
+    var location: String? { get set }
+    
+    init(id: Int, createdAt: Date, text: String, location: String?)
+}
+
+class Entry: EntryType {
     let id: Int
     let createdAt: Date
     var modifiedAt: Date?
@@ -24,7 +34,7 @@ class Entry {
         }
     }
     
-    init(id: Int, createdAt: Date, text: String, location: String? = nil) {
+    required init(id: Int, createdAt: Date, text: String, location: String? = nil) {
         self.id = id
         self.createdAt = createdAt
         self.text = text
@@ -32,8 +42,8 @@ class Entry {
     }
 }
 
-extension Entry: Identifiable {
-}
+//extension Entry: Identifiable {
+//}
 
 extension Entry: Equatable {
     static func == (lhs: Entry, rhs: Entry) -> Bool {
