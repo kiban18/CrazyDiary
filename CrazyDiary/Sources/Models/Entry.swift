@@ -13,18 +13,20 @@ class Entry {
     let createdAt: Date
     var modifiedAt: Date?
 
-    var text: String
-    var location: String?
+    var text: String {
+        didSet {
+            self.modifiedAt = Date()
+        }
+    }
+    var location: String? {
+        didSet {
+            self.modifiedAt = Date()
+        }
+    }
     
     init(id: Int, createdAt: Date, text: String, location: String? = nil) {
         self.id = id
         self.createdAt = createdAt
-        self.text = text
-        self.location = location
-    }
-    
-    func modify(modifiedAt: Date, text: String, location: String? = nil) {
-        self.modifiedAt = modifiedAt
         self.text = text
         self.location = location
     }
@@ -35,6 +37,11 @@ extension Entry: Identifiable {
 
 extension Entry: Equatable {
     static func == (lhs: Entry, rhs: Entry) -> Bool {
+        guard lhs.id == rhs.id else { return false }
+        guard lhs.createdAt == rhs.createdAt else { return false }
+        guard lhs.text == rhs.text else { return false }
+        //guard lhs.location == rhs.location else { return false }
+        
         return true
     }
 }
