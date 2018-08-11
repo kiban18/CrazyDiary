@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="일기를 함 써 봅시다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-UB-bkL">
-                                <rect key="frame" x="16" y="165" width="343" height="486"/>
+                                <rect key="frame" x="16" y="165" width="343" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -68,7 +68,7 @@
                             <constraint firstItem="IgY-bo-Jsr" firstAttribute="trailing" secondItem="GCZ-Iq-NIp" secondAttribute="trailing" id="6Hj-s9-Qaa"/>
                             <constraint firstItem="XaG-Eg-0R2" firstAttribute="leading" secondItem="GCZ-Iq-NIp" secondAttribute="leading" constant="16" id="9GG-P1-HGa"/>
                             <constraint firstItem="kUP-UB-bkL" firstAttribute="leading" secondItem="GCZ-Iq-NIp" secondAttribute="leading" constant="16" id="LDu-wd-jPn"/>
-                            <constraint firstItem="kUP-UB-bkL" firstAttribute="bottom" secondItem="GCZ-Iq-NIp" secondAttribute="bottom" constant="-16" id="Rpw-44-PGp"/>
+                            <constraint firstItem="kUP-UB-bkL" firstAttribute="bottom" secondItem="GCZ-Iq-NIp" secondAttribute="bottom" id="Rpw-44-PGp"/>
                             <constraint firstItem="GCZ-Iq-NIp" firstAttribute="trailing" secondItem="XaG-Eg-0R2" secondAttribute="trailing" constant="16" id="TVi-i7-pkp"/>
                             <constraint firstItem="IgY-bo-Jsr" firstAttribute="top" secondItem="XF5-Wh-zls" secondAttribute="top" id="Vdq-us-GLY"/>
                             <constraint firstItem="kUP-UB-bkL" firstAttribute="trailing" secondItem="GCZ-Iq-NIp" secondAttribute="trailing" constant="-16" id="auv-ig-wg6"/>
@@ -80,6 +80,7 @@
                         <outlet property="dateLabel" destination="rOx-Ef-sJT" id="v2e-SV-Sye"/>
                         <outlet property="saveButton" destination="BjN-dP-WEr" id="ZO2-db-RDK"/>
                         <outlet property="textView" destination="kUP-UB-bkL" id="df2-PQ-R9S"/>
+                        <outlet property="textViewBottomConstraint" destination="Rpw-44-PGp" id="Fv9-Oz-QkB"/>
                         <outlet property="timeLabel" destination="XaG-Eg-0R2" id="qdP-rC-3n8"/>
                     </connections>
                 </viewController>
