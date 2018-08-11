@@ -32,6 +32,10 @@ class EntryViewController: UIViewController {
         let entry: Entry = Entry(text: textView.text)
         diary.add(entry)
 
+        textView.resignFirstResponder()
+        textView.isEditable = false
+        textView.isSelectable = false
+        
         //print("number of entries: ", diary.recentEntries(max: 10).count)
         print("number of entries: ", diary.numberOfEntries)
     }
@@ -43,5 +47,7 @@ class EntryViewController: UIViewController {
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
         textView.text = "IBOutlet으로 연결한 TextView"
         saveButton.setTitle("완전저장", for: .normal)
+        
+        textView.becomeFirstResponder()
     }
 }
