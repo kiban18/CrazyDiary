@@ -18,6 +18,7 @@ class Entry {
             self.modifiedAt = Date()
         }
     }
+    
     var location: String? {
         didSet {
             self.modifiedAt = Date()
@@ -29,6 +30,9 @@ class Entry {
         self.createdAt = createdAt
         self.text = text
         self.location = location
+    }
+    
+    func description() {
     }
 }
 
