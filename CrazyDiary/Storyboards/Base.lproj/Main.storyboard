@@ -38,7 +38,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="save:" destination="2Nt-O7-5XO" eventType="touchUpInside" id="3EX-oy-Djg"/>
+                                            <action selector="saveEntry:" destination="2Nt-O7-5XO" eventType="touchUpInside" id="3EX-oy-Djg"/>
                                         </connections>
                                     </button>
                                 </subviews>

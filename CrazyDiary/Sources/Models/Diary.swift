@@ -9,19 +9,22 @@
 import Foundation
 
 protocol Diary {
+    var numberOfEntries: Int { get }
+    
     func add(_ entry: Entry)
     func update(_ entry: Entry)
     func remove(_ entry: Entry)
-    func entry(with id: Int) -> Entry?
+    func entry(with id: UUID) -> Entry?
     func recentEntries(max: Int) -> [Entry]
 }
 
 class InMemoryDiary: Diary {
-    var entries: [Int:Entry] = [:]
-    
+    var entries: [UUID:Entry] = [:]
+    var numberOfEntries: Int { return entries.count }
+
     init(entries: [Entry] = []) {
         // TODO: need to review
-        var result: [Int: Entry] = [:]
+        var result: [UUID: Entry] = [:]
         entries.forEach { entry in
             result[entry.id] = entry
         }
@@ -45,7 +48,7 @@ class InMemoryDiary: Diary {
         //entries[entry.id] = nil
     }
     
-    func entry(with id: Int) -> Entry? {
+    func entry(with id: UUID) -> Entry? {
         return entries[id]
     }
     

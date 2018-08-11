@@ -8,32 +8,40 @@
 
 import UIKit
 
+extension DateFormatter {
+    static var entryDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy. MM. dd. EEE"
+        return df
+    }()
+}
+
 class EntryViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
-    var model: Int = 0
+    var diary: Diary = InMemoryDiary()
+    var tempCount: Int = 0
     
-    @IBAction func save(_ sender: Any) {
-        model += 1
-        dateLabel.text = "\(model)"
+    @IBAction func saveEntry(_ sender: Any) {
+        tempCount += 1
+        textView.text = textView.text + " \(tempCount)"
+        //let entry: Entry = Entry(id: UUID(), createdAt: Date(), text: textView.text)
+        let entry: Entry = Entry(text: textView.text)
+        diary.add(entry)
+
+        //print("number of entries: ", diary.recentEntries(max: 10).count)
+        print("number of entries: ", diary.numberOfEntries)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dateLabel.text = "2020. 11. 22. 금요일"
-        textView.text = "일기를 코드로 써보기도 합니다."
+        //dateLabel.text = "2020. 11. 22. 금요일"
+        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        textView.text = "IBOutlet으로 연결한 TextView"
         saveButton.setTitle("완전저장", for: .normal)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

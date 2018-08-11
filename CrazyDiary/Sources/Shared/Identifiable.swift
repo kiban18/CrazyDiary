@@ -9,11 +9,11 @@
 import Foundation
 
 protocol Identifiable {
-    var id: Int { get }
+    var id: UUID { get }
 }
 
 extension Identifiable {
     func isIdentical(to other: Self) -> Bool {
-        return true
+        return id == other.id
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class Entry {
-    let id: Int
+    let id: UUID
     let createdAt: Date
     var modifiedAt: Date?
 
@@ -24,7 +24,7 @@ class Entry {
         }
     }
     
-    init(id: Int, createdAt: Date, text: String, location: String? = nil) {
+    init(id: UUID = UUID(), createdAt: Date = Date(), text: String, location: String? = nil) {
         self.id = id
         self.createdAt = createdAt
         self.text = text
@@ -32,8 +32,7 @@ class Entry {
     }
 }
 
-extension Entry: Identifiable {
-}
+extension Entry: Identifiable { }
 
 extension Entry: Equatable {
     static func == (lhs: Entry, rhs: Entry) -> Bool {
