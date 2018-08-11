@@ -25,7 +25,8 @@ class EntryViewController: UIViewController {
     var diary: Diary = InMemoryDiary()
     var tempCount: Int = 0
     
-    @IBAction func saveEntry(_ sender: Any) {
+    @objc func saveEntry(_ sender: Any) {
+        print(#function)
         tempCount += 1
         textView.text = textView.text + " \(tempCount)"
         //let entry: Entry = Entry(id: UUID(), createdAt: Date(), text: textView.text)
@@ -36,18 +37,37 @@ class EntryViewController: UIViewController {
         textView.isEditable = false
         textView.isSelectable = false
         
+        saveButton.removeTarget(self, action: nil, for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(editEntry(_:)), for: .touchUpInside
+        )
+        saveButton.setTitle("수정하기", for: .normal)
+        
         //print("number of entries: ", diary.recentEntries(max: 10).count)
         print("number of entries: ", diary.numberOfEntries)
     }
     
+    @objc func editEntry(_ sender: Any) {
+        print(#function)
+        textView.isEditable = true
+        textView.becomeFirstResponder()
+        
+        saveButton.removeTarget(self, action: nil, for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+        
+        saveButton.setTitle("저장하기", for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
 
         //dateLabel.text = "2020. 11. 22. 금요일"
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
         textView.text = "IBOutlet으로 연결한 TextView"
-        saveButton.setTitle("완전저장", for: .normal)
+        saveButton.setTitle("저장하기", for: .normal)
         
         textView.becomeFirstResponder()
+        
+        saveButton.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
     }
 }
